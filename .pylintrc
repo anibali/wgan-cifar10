@@ -50,7 +50,7 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-disable=bad-continuation,unused-argument
+disable=bad-continuation,too-many-locals
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -198,7 +198,7 @@ attr-name-hint=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
 attr-rgx=(([a-z][a-z0-9_]{0,30})|(_[a-z0-9_]*))$
 
 # Bad variable names which should always be refused, separated by a comma
-bad-names=foo,bar,baz,toto,tutu,tata
+bad-names=foo,baz,toto,tutu,tata
 
 # Naming hint for class attribute names
 class-attribute-name-hint=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$

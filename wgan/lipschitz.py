@@ -6,16 +6,27 @@ import torch
 from torch import autograd
 
 class LipschitzConstraint:
+    '''Abstract base class for Lipschitz constraint implementations.'''
+
     def __init__(self, discriminator):
         self.discriminator = discriminator
 
     def prepare_discriminator(self):
+        '''Prepare the discriminator for an iteration.'''
+
         raise NotImplementedError()
 
     def calculate_loss_penalty(self, real_var, fake_var):
+        '''Calculate a penalty for the discriminator loss.'''
+
         raise NotImplementedError()
 
 class GradientPenalty(LipschitzConstraint):
+    '''Gradient penalty Lipschitz constraint.
+
+    Implements the penalty described in "Improved Training of Wasserstein GANs".
+    '''
+
     def __init__(self, discriminator, coefficient=10):
         super().__init__(discriminator)
 
@@ -54,6 +65,11 @@ class GradientPenalty(LipschitzConstraint):
         return gradient_penalty
 
 class WeightClipping(LipschitzConstraint):
+    '''Weight clipping Lipshitz constraint.
+
+    Implements the approach originally described in "Wasserstein GAN".
+    '''
+
     def __init__(self, discriminator, clamp_lower=-0.01, clamp_upper=0.01):
         super().__init__(discriminator)
 

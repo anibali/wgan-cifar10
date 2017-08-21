@@ -13,3 +13,4 @@ core
 # Project-specific ignores
 /models/
 /out/
+/data/

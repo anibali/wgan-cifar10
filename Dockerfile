@@ -67,19 +67,5 @@ RUN conda install -y --name pytorch-py36 \
  && conda clean -ya
 RUN pip install h5py-cache
 
-# Install Torchnet, a high-level framework for PyTorch
-RUN pip install git+https://github.com/pytorch/tnt.git@master
-
-# Install Requests, a Python library for making HTTP requests
-RUN conda install -y --name pytorch-py36 requests && conda clean -ya
-
-# Install Graphviz
-RUN conda install -y --name pytorch-py36 graphviz=2.38.0 \
- && conda clean -ya
-RUN pip install graphviz
-
-# Install tele
-RUN pip install git+https://github.com/anibali/tele.git@7d89b788d1dd91524ceb931fa5cc2a73065a2c0f
-
 # Set the default command to python3
 CMD ["python3"]
